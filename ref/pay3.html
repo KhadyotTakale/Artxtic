@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Failed - Artxtic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FFFFFF", 
+                        "background-light": "#F3F4F6",
+                        "background-dark": "#050505",
+                        "surface-dark": "#0A0A0A",
+                        "surface-light": "#FFFFFF",
+                        "border-dark": "#27272a",
+                        "border-light": "#e5e7eb",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        serif: ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '0.75rem',
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 min-h-screen relative overflow-hidden transition-colors duration-300 flex items-center justify-center">
+<div class="absolute inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/5 dark:bg-red-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+<main class="relative z-10 w-full max-w-md p-6 flex flex-col items-center text-center animate-slide-up">
+<div class="w-24 h-24 rounded-full bg-red-50 text-[#EF4444] dark:bg-[#EF4444]/10 border border-red-100 dark:border-[#EF4444]/20 flex items-center justify-center mb-8 shadow-xl shadow-red-500/5 dark:shadow-red-900/10">
+<span class="material-icons-round text-5xl">close</span>
+</div>
+<h1 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
+        Payment Failed
+    </h1>
+<p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-10 max-w-xs mx-auto">
+        Your card was declined. Please check your details and try again.
+    </p>
+<div class="flex flex-col w-full gap-4">
+<button class="w-full py-3.5 px-6 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            Try Again
+        </button>
+<button class="w-full py-3.5 px-6 rounded-full bg-transparent border border-gray-300 dark:border-white/30 text-gray-800 dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200">
+            Contact Support
+        </button>
+</div>
+<div class="mt-8 opacity-60 hover:opacity-100 transition-opacity">
+<a class="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1.5" href="#">
+<span class="material-icons-outlined text-sm">help_outline</span>
+<span>Need help?</span>
+</a>
+</div>
+</main>
+
+</body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - Artxtic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FFFFFF", 
+                        "background-light": "#F3F4F6",
+                        "background-dark": "#050505",
+                        "surface-dark": "#0A0A0A",
+                        "surface-light": "#FFFFFF",
+                        "border-dark": "#27272a",
+                        "border-light": "#e5e7eb",
+                        "input-disabled": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        serif: ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '0.75rem',
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(156, 163, 175, 0.5); 
+            border-radius: 3px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 min-h-screen relative overflow-x-hidden transition-colors duration-300">
+<div class="absolute inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+<nav class="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 flex flex-col items-center justify-between py-2 w-16 h-[70vh] bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-xl border border-border-light dark:border-white/10 rounded-full shadow-2xl z-50">
+<div class="flex flex-col items-center gap-6 mt-4 w-full">
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">home</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">folder_open</span>
+</button>
+<button class="p-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-icons-round">auto_awesome</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">bookmark_border</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">people_outline</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-6 mb-4 w-full">
+<button class="p-3 text-gray-800 dark:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">settings</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">error_outline</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-gray-200 dark:border-white/10 mt-2">
+<img alt="User Avatar" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDW7swwKNJXKS-72a3Ew3BzVkpruhg7K0zMTn8rzmQMT3BuaDJqW3bmIQeb_KMOgWacWxDCtZBsf8YZHGNVdVdIo8XLzyHKeQd_Fl2Uh4Rx9qt9benlmI09nZh7J8CYOuMtTaDyt2ZdAlLggJxIPoELTvdpQO64oV6esAFbQ3xuC_2xvJ4XCLz3KpAig04gOwn0Kqsz5wl0m1Bl3i_GOVJrt6f2oc75VcGEkxf5GhXkOztkmy95qS7OZ1lGkx4WJ9_NObbZmeBFRyK"/>
+</div>
+</div>
+</nav>
+<main class="relative min-h-screen py-16 px-4 ml-24 lg:ml-32 w-auto max-w-4xl mx-auto z-10 flex flex-col justify-center">
+<div class="mb-12">
+<h1 class="text-4xl lg:text-5xl font-serif text-gray-900 dark:text-white mb-3">User Profile</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-light">Manage your personal information and subscription settings.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12 items-start">
+<div class="flex flex-col items-center gap-4 lg:w-48 flex-shrink-0">
+<div class="group relative w-32 h-32 rounded-full overflow-hidden border border-gray-200 dark:border-white/10 shadow-lg cursor-pointer">
+<img alt="User" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAByFNGTa01DfNcxPCnKpgZMXl8hxeQAPx4djrNRNXKD0nu8afgxXf6QCP53inbkCbvxGkxQSdda1ujYQJKn7_DgmbUMAWiemJfQmuBf-MxW5ZZkn-pe8UlaYr3MgXtdsibRQmTjlXg_-ianDnH9gJYHFhi3Ak3xLGKOZQ6m56iHcugKFh2SXuZ3mu9tATiG68BoW_Obpcm_e78FL8uBNlj8v6ByeOUdoKUcvJi4QN9kFXPTQs2ImPbiVpiQrD4af_ZiUJfHiPBaHMA"/>
+<div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+<span class="text-xs text-white font-medium flex items-center gap-1">
+<span class="material-icons-outlined text-sm">camera_alt</span>
+                            Change
+                        </span>
+</div>
+</div>
+</div>
+<div class="flex-grow w-full space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400 ml-1">Display Name</label>
+<input class="w-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-gray-400 dark:focus:ring-white/20 focus:border-gray-400 dark:focus:border-white/30 transition-all outline-none dark:text-white shadow-sm" type="text" value="Alex Pernandezzz"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400 ml-1">Email Address</label>
+<div class="relative">
+<input class="w-full bg-gray-100 dark:bg-input-disabled border border-transparent rounded-xl px-4 py-3 text-sm text-gray-500 cursor-not-allowed select-none" disabled="" type="email" value="alex@artxtic.ai"/>
+<span class="material-icons-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">lock</span>
+</div>
+</div>
+</div>
+<div class="space-y-2 relative">
+<div class="flex justify-between items-end ml-1 mb-1">
+<label class="text-xs uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400">Global Prompt Instructions</label>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-gray-400 dark:focus:ring-white/20 focus:border-gray-400 dark:focus:border-white/30 transition-all outline-none dark:text-white min-h-[160px] resize-none leading-relaxed placeholder-gray-400 dark:placeholder-gray-600" placeholder="Enter instructions that apply to all your generations (e.g., 'Always use cinematic lighting' or 'Avoid text in images')..."></textarea>
+<div class="absolute bottom-3 right-4 text-[10px] text-gray-400 bg-surface-light dark:bg-surface-dark px-2 py-0.5 rounded-full border border-gray-100 dark:border-white/5">0/500</div>
+</div>
+</div>
+<div class="bg-surface-light/50 dark:bg-surface-dark/50 border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-12 h-12 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-black flex items-center justify-center shadow-lg">
+<span class="material-icons-round text-2xl">auto_awesome</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white">Current Plan: <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">Pro</span></h3>
+<p class="text-xs text-gray-500 mt-1">Renews on Jan 25, 2026</p>
+</div>
+</div>
+<button class="w-full sm:w-auto px-5 py-2.5 text-xs font-medium border border-gray-300 dark:border-white/20 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-colors text-gray-700 dark:text-white relative z-10">
+                        Manage Subscription
+                    </button>
+</div>
+<div class="pt-8 flex flex-col items-center gap-6">
+<button class="w-full max-w-xs px-8 py-3.5 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full font-medium text-sm transition-all opacity-40 cursor-not-allowed shadow-xl hover:shadow-2xl hover:-translate-y-0.5 disabled:hover:translate-y-0 disabled:hover:shadow-xl" disabled="">
+                        Save Changes
+                    </button>
+<a class="text-xs text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1 group" href="#">
+<span class="material-icons-outlined text-sm group-hover:-translate-x-0.5 transition-transform">logout</span>
+                        Log out
+                    </a>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

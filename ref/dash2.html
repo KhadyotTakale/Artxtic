@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artxtic Dashboard - Loading State</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FFFFFF", // High contrast white for dark mode primary
+                        "background-light": "#F3F4F6",
+                        "background-dark": "#050505",
+                        "surface-dark": "#0A0A0A",
+                        "surface-light": "#FFFFFF",
+                        "border-dark": "#27272a",
+                        "border-light": "#e5e7eb",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '0.75rem',
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' }
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(156, 163, 175, 0.5); 
+            border-radius: 3px;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.skeleton-shimmer {
+            background: linear-gradient(to right, rgba(39, 39, 42, 1) 8%, rgba(63, 63, 70, 1) 18%, rgba(39, 39, 42, 1) 33%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s linear infinite forwards;
+        }.purple-shimmer {
+            background: linear-gradient(to right, rgba(20, 20, 25, 1) 8%, rgba(88, 28, 135, 0.2) 18%, rgba(20, 20, 25, 1) 33%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s linear infinite forwards;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 min-h-screen relative overflow-hidden transition-colors duration-300">
+<div class="absolute inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+<nav class="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 flex flex-col items-center justify-between py-2 w-16 h-[70vh] bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-xl border border-border-light dark:border-white/10 rounded-full shadow-2xl z-50">
+<div class="flex flex-col items-center gap-6 mt-4 w-full">
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">home</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">folder_open</span>
+</button>
+<button class="p-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-icons-round">auto_awesome</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">bookmark_border</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">people_outline</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-6 mb-4 w-full">
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">settings</span>
+</button>
+<button class="p-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors group">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">error_outline</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-gray-200 dark:border-white/10 mt-2">
+<img alt="User Avatar" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDW7swwKNJXKS-72a3Ew3BzVkpruhg7K0zMTn8rzmQMT3BuaDJqW3bmIQeb_KMOgWacWxDCtZBsf8YZHGNVdVdIo8XLzyHKeQd_Fl2Uh4Rx9qt9benlmI09nZh7J8CYOuMtTaDyt2ZdAlLggJxIPoELTvdpQO64oV6esAFbQ3xuC_2xvJ4XCLz3KpAig04gOwn0Kqsz5wl0m1Bl3i_GOVJrt6f2oc75VcGEkxf5GhXkOztkmy95qS7OZ1lGkx4WJ9_NObbZmeBFRyK"/>
+</div>
+</div>
+</nav>
+<header class="fixed top-6 left-24 right-6 lg:left-32 lg:right-10 flex flex-wrap items-center justify-between gap-4 z-40 pointer-events-none">
+<div class="pointer-events-auto bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-md border border-border-light dark:border-white/10 rounded-full pl-2 pr-6 py-2 flex items-center gap-3 shadow-lg">
+<div class="h-8 w-8 rounded-full bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 flex items-center justify-center border border-white/10">
+<span class="material-icons-round text-sm text-gray-700 dark:text-gray-300">donut_large</span>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<span class="font-semibold text-gray-900 dark:text-white">Artxtic</span>
+<span class="text-gray-400 dark:text-gray-600">/</span>
+<span class="text-gray-600 dark:text-gray-300">HDS - [HD Project 01]</span>
+</div>
+<button class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-icons-round text-base">more_horiz</span>
+</button>
+</div>
+<div class="pointer-events-auto flex items-center gap-3">
+<div class="hidden md:flex items-center gap-2 bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-md border border-border-light dark:border-white/10 rounded-full px-4 py-2 shadow-lg">
+<span class="text-xs text-gray-500 dark:text-gray-400">Last edited 10 min ago</span>
+<div class="flex -space-x-2">
+<img alt="Collaborator 1" class="w-5 h-5 rounded-full border border-white dark:border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnioS2z-SpjLa9EGEQ3uMHt-i11JJ2HIsQqT-38BHmfenqJVZbKgeOfuuMrQ2AVSikVTKfGbsPhrdVSBjNWcQGCj07Lj71mNz3qg2R5T3rtbd-9U5Yd-P_BTAVklWOVx9a9NhKlQAprSLWSTEzMX_QAkg3tFEmQZbzG54IKtiUD8xGmKFA9dCJ7AFaDsbkIZwv3id9l3QSwzqwLITkJObZmrmIJBjgvAGlni3xjoo8ZU0_HxmQjw61mQfxczhsWkFtJn6FQ3GCA0HU"/>
+<img alt="Collaborator 2" class="w-5 h-5 rounded-full border border-white dark:border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVPRi2gE6ybEtdpw6B_HFXY8DKmJEUIfYNrBDdlO_kYXPsUz6ubpBLkjWy370AAYFxxnw5xIjKaBtZQmU9-EeaodKjvU72EgGUz5dvF0gzNfBVRBm-7YyIBtqLLwtq32elI4UDzpsRTj5LPCfW5NeiJmWsaTHi095utSoQ76WQqLN0cG_NXF9DzO4K4W5bP7h3q3H1u-NXWd9b9XlX1fQvHBz6aU38nicRhkKxpp1ZLRKydDI6QPrKkWfgdGo3dYr9mmKs3G_h6VQF"/>
+</div>
+<span class="material-icons-round text-gray-400 text-sm ml-1">expand_more</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 dark:border-white/20 text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/5 transition-colors bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-md shadow-lg text-gray-800 dark:text-gray-200">
+<span class="material-icons-round text-base">verified</span>
+                Upgrade Pro
+            </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 dark:border-white/20 text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/5 transition-colors bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-md shadow-lg text-gray-800 dark:text-gray-200">
+<span class="material-icons-outlined text-base">ios_share</span>
+                Share
+            </button>
+</div>
+</header>
+<main class="relative h-screen overflow-y-auto no-scrollbar pt-28 pb-40 px-4 ml-24 lg:ml-32 w-auto max-w-5xl mx-auto flex flex-col gap-8 z-10">
+<div class="flex justify-end w-full animate-fade-in-up">
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-white/10 rounded-2xl p-5 shadow-sm max-w-2xl w-full relative group">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAByFNGTa01DfNcxPCnKpgZMXl8hxeQAPx4djrNRNXKD0nu8afgxXf6QCP53inbkCbvxGkxQSdda1ujYQJKn7_DgmbUMAWiemJfQmuBf-MxW5ZZkn-pe8UlaYr3MgXtdsibRQmTjlXg_-ianDnH9gJYHFhi3Ak3xLGKOZQ6m56iHcugKFh2SXuZ3mu9tATiG68BoW_Obpcm_e78FL8uBNlj8v6ByeOUdoKUcvJi4QN9kFXPTQs2ImPbiVpiQrD4af_ZiUJfHiPBaHMA"/>
+</div>
+<span class="text-sm font-medium text-gray-900 dark:text-white">Alex Pernandezzz</span>
+</div>
+<span class="text-xs text-gray-400">25 Dec 2025</span>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    Create multiple high-quality architectural design variations of a [building type], where each variation explores a distinct architectural concept, form, massing, and façade composition while maintaining the same functional program. The designs should demonstrate thoughtful...
+                </p>
+<button class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded">
+<span class="material-icons-outlined text-gray-400 text-sm">edit</span>
+</button>
+</div>
+</div>
+<div class="flex justify-start w-full">
+<div class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-white/10 rounded-2xl p-5 shadow-sm max-w-3xl w-full relative overflow-hidden">
+<div class="flex items-center justify-between mb-4 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-inner animate-pulse-slow">
+<span class="material-icons-round text-white text-sm animate-spin" style="animation-duration: 3s;">sync</span>
+</div>
+<span class="text-sm font-medium text-gray-900 dark:text-white">Artxtic AI</span>
+</div>
+<span class="text-xs text-purple-400 animate-pulse font-medium">Generating...</span>
+</div>
+<div class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6 italic flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-purple-500 animate-bounce" style="animation-delay: 0s;"></span>
+<span class="inline-block w-2 h-2 rounded-full bg-purple-500 animate-bounce" style="animation-delay: 0.15s;"></span>
+<span class="inline-block w-2 h-2 rounded-full bg-purple-500 animate-bounce" style="animation-delay: 0.3s;"></span>
+<span class="ml-2">Designing architectural variations...</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-2">
+<div class="aspect-square rounded-xl overflow-hidden border border-gray-200 dark:border-white/5 relative bg-gray-100 dark:bg-gray-900">
+<div class="absolute inset-0 purple-shimmer opacity-30"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<span class="material-icons-outlined text-4xl text-purple-300">image</span>
+</div>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden border border-gray-200 dark:border-white/5 relative bg-gray-100 dark:bg-gray-900">
+<div class="absolute inset-0 purple-shimmer opacity-30" style="animation-delay: 0.2s;"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<span class="material-icons-outlined text-4xl text-purple-300">image</span>
+</div>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden border border-gray-200 dark:border-white/5 relative bg-gray-100 dark:bg-gray-900">
+<div class="absolute inset-0 purple-shimmer opacity-30" style="animation-delay: 0.4s;"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<span class="material-icons-outlined text-4xl text-purple-300">image</span>
+</div>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden border border-gray-200 dark:border-white/5 relative bg-gray-100 dark:bg-gray-900">
+<div class="absolute inset-0 purple-shimmer opacity-30" style="animation-delay: 0.6s;"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<span class="material-icons-outlined text-4xl text-purple-300">image</span>
+</div>
+</div>
+</div>
+<div class="w-full h-1 bg-gray-100 dark:bg-white/5 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-[45%] rounded-full relative overflow-hidden">
+<div class="absolute inset-0 bg-white/30 animate-[shimmer_1s_linear_infinite]" style="background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent); transform: skewX(-20deg);"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2 text-[10px] text-gray-400 px-1">
+<span>Processing request</span>
+<span>45%</span>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+<div class="pointer-events-auto w-full max-w-3xl bg-surface-light/80 dark:bg-surface-dark/60 backdrop-blur-sm border border-border-light dark:border-white/5 rounded-3xl shadow-2xl overflow-hidden ring-1 ring-black/5 dark:ring-white/5 opacity-80 cursor-not-allowed select-none grayscale-[0.3]">
+<div class="relative p-1">
+<textarea class="w-full bg-transparent border-0 text-gray-500 dark:text-gray-400 placeholder-gray-400 dark:placeholder-gray-600 focus:ring-0 resize-none py-3 px-4 text-sm cursor-not-allowed" disabled="" placeholder="Describe what you want to create..." rows="2">Create multiple high-quality architectural design variations of a [building type], where each variation explores a distinct architectural concept, form, massing, and façade...</textarea>
+</div>
+<div class="flex items-center justify-between px-3 pb-3 pt-1 opacity-50">
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg text-gray-400 cursor-not-allowed" disabled="">
+<span class="material-icons-outlined text-xl">add_photo_alternate</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/5 border border-transparent cursor-not-allowed" disabled="">
+<div class="w-4 h-4 bg-gray-600 dark:bg-gray-400 rounded-sm flex items-center justify-center text-[10px] font-bold text-white dark:text-black">G</div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Nano Banana</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-white/5 border border-transparent cursor-not-allowed" disabled="">
+<span class="material-icons-outlined text-sm text-gray-500 dark:text-gray-400">crop_portrait</span>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">9:16</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full text-gray-400 cursor-not-allowed" disabled="">
+<span class="material-icons-outlined text-xl">mic</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 bg-gray-700 dark:bg-gray-700 text-gray-400 dark:text-gray-400 rounded-full shadow-none cursor-not-allowed" disabled="">
+<div class="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>
